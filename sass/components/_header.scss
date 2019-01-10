@@ -1,9 +1,32 @@
 .Header {
+  display: flex;
   background: $color-main;
   margin: 0;
+  justify-content: space-between;
+  align-items: center;
+  img {
+    border-radius: 50%;
+    margin: 8px;
+    width: 48px;
+    height: 48px;
+  }
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #333;
+    margin: 0 12px;
+  }
+  a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
 }
 
 h1 {
   margin: 0;
   padding: 12px;
+}
+
+.brand {
+  display: flex;
 }

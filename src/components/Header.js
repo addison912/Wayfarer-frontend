@@ -4,7 +4,14 @@ class Header extends Component {
   render() {
     return (
       <header className="Header">
-        <h1>Header</h1>
+        <div className="brand">
+          <img src="./assets/images/wwf.gif" />
+          <h1>Wayfarer</h1>
+        </div>
+        <nav>
+          <a href="#">Login</a>
+          <a href="#">Sign Up</a>
+        </nav>
       </header>
     );
   }

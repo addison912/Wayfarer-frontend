@@ -8,6 +8,9 @@ class Cities extends Component {
         <h1>Cities</h1>
         <div className="city-list">
           <City />
+          <City />
+          <City />
+          <City />
         </div>
       </div>
     );
