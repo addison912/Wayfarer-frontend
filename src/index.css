@@ -6,6 +6,7 @@
 body {
   background: oldlace;
   margin: 0;
+  font-family: "Raleway", sans-serif;
 }
 
 .App {
@@ -13,13 +14,35 @@ body {
 }
 
 .Header {
-  background: cornflowerblue;
+  background: #6495ed;
   margin: 0;
 }
 
 h1 {
   margin: 0;
   padding: 12px;
+}
+
+.Cities {
+  display: flex;
+  flex-direction: column;
+  width: 41.66%;
+  background: lightblue;
+}
+.Cities h2 {
+  width: 100%;
+  text-align: center;
+}
+
+.City {
+  display: flex;
+  margin: 0 7px 7px 7px;
+  border-radius: 5px;
+  align-items: center;
+  background: ivory;
+}
+.City img {
+  border-radius: 5px 0 0 5px;
 }
 
 /*# sourceMappingURL=index.css.map */

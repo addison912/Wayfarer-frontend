@@ -1,0 +1,10 @@
+.City {
+  display: flex;
+  margin: 0 7px 7px 7px;
+  border-radius: 5px;
+  align-items: center;
+  background: ivory;
+  img {
+    border-radius: 5px 0 0 5px;
+  }
+}

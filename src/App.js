@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
 import Header from "./components/Header";
-import HomeContainer from "./containers/HomeContainer";
+import CitiesContainer from "./containers/CitiesContainer";
 import ProfileContainer from "./containers/ProfileContainer";
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Router>
-          <HomeContainer path="/" />
+          <CitiesContainer path="/" />
           <ProfileContainer path="/profile/:id" />
         </Router>
       </div>
