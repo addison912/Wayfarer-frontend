@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
-import "./App.css";
 import Header from "./components/Header";
 import HomeContainer from "./containers/HomeContainer";
 import ProfileContainer from "./containers/ProfileContainer";
