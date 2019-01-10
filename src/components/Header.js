@@ -11,6 +11,7 @@ class Header extends Component {
         <nav>
           <a href="#">Login</a>
           <a href="#">Sign Up</a>
+          <a href="#">Profile</a>
         </nav>
       </header>
     );
