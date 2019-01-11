@@ -1,0 +1,14 @@
+.AddPost {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#add-post-icon {
+  height: 48px;
+  width: 48px;
+  margin: 12px;
+}
+
+#add-post-icon:hover {
+  cursor: pointer;
+}
