@@ -5,17 +5,17 @@ class AddPost extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      formStyle: { display: "none" }
+      PostForm: { display: "none" }
     };
   }
 
   toggleModal = () =>
-    this.state.formStyle.display === "none"
+    this.state.PostForm.display === "none"
       ? this.setState({
-          formStyle: { display: "flex" }
+          PostForm: { display: "flex" }
         })
       : this.setState({
-          formStyle: { display: "none" }
+          PostForm: { display: "none" }
         });
 
   render() {
@@ -27,7 +27,7 @@ class AddPost extends Component {
           src="./assets/images/plus.svg"
           alt="add post button"
         />
-        <PostForm style={this.state.formStyle} toggleModal={this.toggleModal} />
+        <PostForm style={this.state.PostForm} toggleModal={this.toggleModal} />
       </div>
     );
   }
