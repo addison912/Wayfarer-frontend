@@ -4,6 +4,7 @@
   margin: 0;
   justify-content: space-between;
   align-items: center;
+  padding: 0 10px 0 0;
   img {
     border-radius: 50%;
     margin: 8px;
@@ -16,7 +17,7 @@
     color: #333;
     margin: 0 12px;
   }
-  a:hover {
+  a p:hover {
     color: #fff;
     text-decoration: underline;
   }
@@ -29,4 +30,8 @@
     padding: 12px;
     text-transform: uppercase;
   }
+}
+
+.top-nav {
+  display: flex;
 }

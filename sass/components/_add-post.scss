@@ -3,12 +3,22 @@
   justify-content: flex-end;
 }
 
-#add-post-icon {
+#add-post-icon:hover {
+  cursor: pointer;
+}
+
+.plus-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(82, 207, 82);
+  border-radius: 50%;
   height: 48px;
   width: 48px;
   margin: 12px;
-}
-
-#add-post-icon:hover {
-  cursor: pointer;
+  h1 {
+    color: rgb(238, 230, 216);
+    font-size: 64px;
+    font-weight: 100;
+  }
 }

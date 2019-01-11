@@ -5,7 +5,6 @@ class Cities extends Component {
   render() {
     return (
       <div className="Cities">
-        <h1>Cities</h1>
         <div className="city-list">
           <City />
           <City />

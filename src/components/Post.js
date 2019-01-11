@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Post extends Component {
   render() {
     return (
-      <div className="Post">
+      <div className="Post shadow-box">
         <img className="post-list-image" src="http://placecorgi.com/180" />
         <article className="post-body">
           <h3>Post Title</h3>

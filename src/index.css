@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
 * {
   box-sizing: border-box;
 }
@@ -6,7 +6,17 @@
 body {
   background: oldlace;
   margin: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+
+.shadow-box {
+  margin: 0 0 10px 0;
+  border-radius: 5px;
+  box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.shadow {
+  box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .Header {
@@ -15,6 +25,7 @@ body {
   margin: 0;
   justify-content: space-between;
   align-items: center;
+  padding: 0 10px 0 0;
 }
 .Header img {
   border-radius: 50%;
@@ -28,7 +39,7 @@ body {
   color: #333;
   margin: 0 12px;
 }
-.Header a:hover {
+.Header a p:hover {
   color: #fff;
   text-decoration: underline;
 }
@@ -42,12 +53,17 @@ body {
   text-transform: uppercase;
 }
 
+.top-nav {
+  display: flex;
+}
+
 .Cities {
   display: flex;
   flex-direction: column;
   width: 41.66%;
-  background: lightblue;
-  padding: 0 8px;
+  padding: 12px;
+  height: 90vh;
+  overflow: scroll;
 }
 .Cities h2 {
   width: 100%;
@@ -56,8 +72,6 @@ body {
 
 .City {
   display: flex;
-  margin: 0 0 10px 0;
-  border-radius: 5px;
   align-items: center;
   background: ivory;
 }
@@ -67,16 +81,20 @@ body {
 
 .CityInfo {
   display: flex;
-  padding: 12px;
+  background: #ffb619;
 }
 .CityInfo img {
-  width: 50%;
+  border-radius: 0 5px 5px 0;
+  width: 58.33%;
 }
 
 .city-headers {
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 41.66%;
   padding: 0 12px;
-  text-align: center;
 }
 
 .CitiesContainer {
@@ -85,13 +103,14 @@ body {
 
 .CityDetails {
   width: 58.33%;
+  height: 90vh;
+  padding: 18px;
+  overflow: scroll;
 }
 
 .Post {
   display: flex;
-  margin: 0 0 10px 0;
-  background: #fcfcc0;
-  border-radius: 5px;
+  background: ivory;
 }
 .Post img {
   border-radius: 5px 0 0 5px;
@@ -103,24 +122,29 @@ body {
   text-align: left;
 }
 
-.Posts {
-  background: #eee;
-  padding: 8px;
-}
-
 .AddPost {
   display: flex;
   justify-content: flex-end;
 }
 
-#add-post-icon {
+#add-post-icon:hover {
+  cursor: pointer;
+}
+
+.plus-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #52cf52;
+  border-radius: 50%;
   height: 48px;
   width: 48px;
   margin: 12px;
 }
-
-#add-post-icon:hover {
-  cursor: pointer;
+.plus-icon h1 {
+  color: #eee6d8;
+  font-size: 64px;
+  font-weight: 100;
 }
 
 .modal-container {
@@ -140,7 +164,7 @@ body {
   flex-direction: column;
   min-width: 300px;
   width: 60vw;
-  border-radius: 6px;
+  border-radius: 5px;
   box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.5);
   background: whitesmoke;
   padding: 10px;

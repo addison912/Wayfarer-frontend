@@ -21,12 +21,15 @@ class AddPost extends Component {
   render() {
     return (
       <div className="AddPost">
-        <img
+        <div
+          className="plus-icon shadow"
           onClick={this.toggleModal}
           id="add-post-icon"
           src="./assets/images/plus.svg"
           alt="add post button"
-        />
+        >
+          <h1>+</h1>
+        </div>
         <PostForm style={this.state.PostForm} toggleModal={this.toggleModal} />
       </div>
     );

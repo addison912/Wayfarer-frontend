@@ -5,7 +5,6 @@ class Posts extends Component {
   render() {
     return (
       <div className="Posts">
-        <h1>Posts</h1>
         <div className="post-list">
           <Post />
           <Post />

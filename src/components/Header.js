@@ -34,19 +34,21 @@ class Header extends Component {
   render() {
     return (
       <div>
-        <header className="Header">
-          <div className="brand">
+        <header className="Header shadow">
+          <a href="/" className="brand">
             <img src="./assets/images/wwf.gif" />
             <h1>Wayfarer</h1>
-          </div>
-          <nav>
+          </a>
+          <nav className="top-nav">
             <a href="#" onClick={this.toggleLoginModal}>
-              Login
+              <p>Login</p>
             </a>
             <a href="#" onClick={this.toggleSignUpModal}>
-              Sign Up
+              <p>Sign Up</p>
             </a>
-            <a href="/profile/1">Profile</a>
+            <a href="/profile/1">
+              <p>Profile</p>
+            </a>
           </nav>
         </header>
         <SignUpForm

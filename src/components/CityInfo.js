@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class CityInfo extends Component {
   render() {
     return (
-      <div className="CityInfo">
+      <div className="CityInfo shadow-box">
         <div className="city-headers">
           <h2>City Name</h2>
           <h3>Country</h3>
