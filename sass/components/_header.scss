@@ -22,11 +22,11 @@
   }
 }
 
-h1 {
-  margin: 0;
-  padding: 12px;
-}
-
 .brand {
   display: flex;
+  h1 {
+    margin: 0;
+    padding: 12px;
+    text-transform: uppercase;
+  }
 }
