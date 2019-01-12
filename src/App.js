@@ -1,17 +1,37 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
 import Header from "./components/Header";
-import CitiesContainer from "./containers/CitiesContainer";
+import HomeContainer from "./containers/HomeContainer";
 import ProfileContainer from "./containers/ProfileContainer";
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      user: {
+        username: "addison912",
+        password: ""
+      },
+
+      loggedIn: false
+    };
+  }
+
+  // function checkForLogin(){
+  //   if(localStorage.length > 0){
+  //     let jwt = localStorage.token
+
+  //   }
+  //   }
+
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header user={this.state.user} />
         <Router>
-          <CitiesContainer path="/" />
-          <ProfileContainer path="/profile/:id" />
+          <HomeContainer path="/" loggedIn={this.state.loggedIn} />
+          <ProfileContainer path="/profile/:username" user={this.state.user} />
         </Router>
       </div>
     );

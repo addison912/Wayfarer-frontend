@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SignUpForm from "./SignUpForm";
 import LoginForm from "./LoginForm";
+import { Link } from "@reach/router";
 
 class Header extends Component {
   constructor(props) {
@@ -35,10 +36,10 @@ class Header extends Component {
     return (
       <div>
         <header className="Header shadow">
-          <a href="/" className="brand">
+          <Link to="/" className="brand">
             <img src="./assets/images/wwf.gif" />
             <h1>Wayfarer</h1>
-          </a>
+          </Link>
           <nav className="top-nav">
             <a href="#" onClick={this.toggleLoginModal}>
               <p>Login</p>
@@ -46,9 +47,9 @@ class Header extends Component {
             <a href="#" onClick={this.toggleSignUpModal}>
               <p>Sign Up</p>
             </a>
-            <a href="/profile/1">
+            <Link to={`/profile/${this.props.user.username}`}>
               <p>Profile</p>
-            </a>
+            </Link>
           </nav>
         </header>
         <SignUpForm
