@@ -199,8 +199,9 @@ button {
 }
 
 input,
-textarea {
-  min-width: 120px;
+textarea,
+button {
+  min-width: 100px;
 }
 
 input::placeholder,
@@ -220,6 +221,11 @@ textarea {
 
 .form-row {
   display: flex;
+}
+
+label {
+  margin: 10px;
+  font-size: 14px;
 }
 
 /*# sourceMappingURL=index.css.map */

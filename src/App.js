@@ -14,7 +14,7 @@ class App extends Component {
         password: ""
       },
 
-      loggedIn: false
+      loggedIn: true
     };
   }
 

@@ -4,13 +4,10 @@ import LoginForm from "./LoginForm";
 import { Link } from "@reach/router";
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      signUpModalStyle: { display: "none" },
-      loginModalStyle: { display: "none" }
-    };
-  }
+  state = {
+    signUpModalStyle: { display: "none" },
+    loginModalStyle: { display: "none" }
+  };
 
   toggleSignUpModal = () => {
     this.state.signUpModalStyle.display === "none"
