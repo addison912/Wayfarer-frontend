@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SignUpForm from "./SignUpForm";
 import LoginForm from "./LoginForm";
 import { Link } from "@reach/router";
+import TopNav from "./TopNav";
 
 class Header extends Component {
   render() {
@@ -12,17 +13,13 @@ class Header extends Component {
             <img src="./assets/images/wwf.gif" alt="Wayfarer logo" />
             <h1>Wayfarer</h1>
           </Link>
-          <nav className="top-nav">
-            <a href="#" onClick={this.props.toggleLoginModal}>
-              <p>Login</p>
-            </a>
-            <a href="#" onClick={this.props.toggleSignUpModal}>
-              <p>Sign Up</p>
-            </a>
-            <Link to={`/profile/${this.props.username}`}>
-              <p>Profile</p>
-            </Link>
-          </nav>
+          <TopNav
+            loggedIn={this.props.loggedIn}
+            username={this.props.username}
+            toggleSignUpModal={this.props.toggleSignUpModal}
+            toggleLoginModal={this.props.toggleLoginModal}
+            handleLogOut={this.props.handleLogOut}
+          />
         </header>
         <SignUpForm
           style={this.props.signUpModalStyle}
