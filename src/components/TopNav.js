@@ -9,7 +9,10 @@ class TopNav extends Component {
           <a href="#" onClick={this.props.handleLogOut}>
             <p>Log Out</p>
           </a>
-          <Link to={`/profile/${this.props.username}`}>
+          <Link
+            username={this.props.username}
+            to={`/profile/${this.props.username}`}
+          >
             <p>Profile</p>
           </Link>
         </nav>

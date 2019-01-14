@@ -31,6 +31,7 @@ class Header extends Component {
         <LoginForm
           style={this.props.loginModalStyle}
           toggleLoginModal={this.props.toggleLoginModal}
+          handleLogin={this.props.handleLogin}
         />
       </div>
     );

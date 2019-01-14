@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import HomeContainer from "./containers/HomeContainer";
 import ProfileContainer from "./containers/ProfileContainer";
 import axios from "axios";
+const constants = require("./config/constants");
 
 class App extends Component {
   constructor() {
@@ -64,7 +65,7 @@ class App extends Component {
     });
     let joinDate = new Date();
     axios
-      .post("http://localhost:3001/user/signup", {
+      .post(`${constants.server}/user/signup`, {
         username: this.state.username,
         email: this.state.email,
         password: newUser.password,
@@ -82,7 +83,30 @@ class App extends Component {
       .catch(err => {
         console.log(err);
         if (err.response.status === 409) {
-          alert("This username is taken! Please try another.");
+          alert(err.response.data.message);
+        }
+      });
+  };
+
+  handleLogin = e => {
+    e.preventDefault();
+    console.log("login clicked");
+    axios
+      .post(`${constants.server}/user/login`, {
+        username: document.getElementById("login-username").value,
+        password: document.getElementById("login-password").value
+      })
+      .then(response => {
+        localStorage.token = response.data.token;
+        this.setState({
+          loggedIn: true
+        });
+        this.toggleLoginModal();
+      })
+      .catch(err => {
+        console.log(err);
+        if (err.response.status === 401) {
+          alert(err.response.data.message);
         }
       });
   };
@@ -118,10 +142,14 @@ class App extends Component {
           signUpModalStyle={this.state.signUpModalStyle}
           loginModalStyle={this.state.loginModalStyle}
           handleLogOut={this.handleLogOut}
+          handleLogin={this.handleLogin}
         />
         <Router>
           <HomeContainer path="/" loggedIn={this.state.loggedIn} />
-          <ProfileContainer path="/profile/:username" />
+          <ProfileContainer
+            username={this.state.username}
+            path="/profile/:username"
+          />
         </Router>
       </div>
     );
