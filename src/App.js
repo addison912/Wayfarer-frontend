@@ -11,6 +11,7 @@ class App extends Component {
     super();
 
     this.state = {
+      userId: "",
       username: "",
       email: "",
       currentCity: "",
@@ -60,27 +61,33 @@ class App extends Component {
     let joinDate = new Date();
     axios
       .post(`${constants.server}/user/signup`, {
-        username: this.state.username,
-        email: this.state.email,
+        username: newUser.username,
+        email: newUser.email,
         password: newUser.password,
-        currentCity: this.state.currentCity,
-        profilePic: this.state.profilePic,
+        currentCity: newUser.currentCity,
+        profilePic: newUser.profilePic,
         joinDate: joinDate
       })
       .then(response => {
+        console.log(response.data);
         localStorage.token = response.data.token;
         this.setState({
           username: newUser.username,
           email: newUser.email,
           currentCity: newUser.currentCity,
           profilePic: newUser.profilePic,
-          loggedIn: true
+          loggedIn: true,
+          userId: response.data.result._id
         });
         this.toggleSignUpModal();
       })
       .catch(err => {
         console.log(err);
-        if (err.response.status === 409) {
+        if (
+          err.response.status &&
+          err.response.status === 409 &&
+          err.response.data.message
+        ) {
           alert(err.response.data.message);
         }
       });
