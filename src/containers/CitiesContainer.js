@@ -8,8 +8,8 @@ class CitiesContainer extends Component {
     return (
       <div className="CitiesContainer">
         <Landing />
-        {/* <Cities />
-        <CityDetails /> */}
+        <Cities />
+        <CityDetails />
       </div>
     );
   }
