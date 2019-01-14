@@ -4,7 +4,7 @@ class ProfileContainer extends Component {
   render() {
     return (
       <div className="ProfileContainer">
-        <h1>User Profile</h1>
+        <h1>Welcome {this.props.username}!</h1>
       </div>
     );
   }

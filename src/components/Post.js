@@ -4,7 +4,11 @@ class Post extends Component {
   render() {
     return (
       <div className="Post shadow-box">
-        <img className="post-list-image" src="http://placecorgi.com/180" />
+        <img
+          className="post-list-image"
+          src="http://placecorgi.com/180"
+          alt="city"
+        />
         <article className="post-body">
           <h3>Post Title</h3>
           <p>

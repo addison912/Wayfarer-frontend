@@ -97,7 +97,7 @@ body {
   padding: 0 12px;
 }
 
-.CitiesContainer {
+.HomeContainer {
   display: flex;
 }
 
@@ -190,7 +190,8 @@ textarea {
   border-radius: 4px;
 }
 
-button:hover {
+button:hover,
+input:hover {
   cursor: pointer;
 }
 
@@ -199,8 +200,9 @@ button {
 }
 
 input,
-textarea {
-  min-width: 120px;
+textarea,
+button {
+  min-width: 100px;
 }
 
 input::placeholder,
@@ -220,6 +222,11 @@ textarea {
 
 .form-row {
   display: flex;
+}
+
+label {
+  margin: 10px;
+  font-size: 14px;
 }
 
 /*# sourceMappingURL=index.css.map */
