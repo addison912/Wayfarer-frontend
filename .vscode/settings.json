@@ -3,12 +3,7 @@
        {
            "format": "expanded",
            "extensionName": ".css",
-           "savePath": "/css"
-       },
-       {
-           "extensionName": ".min.css",
-           "format": "compressed",
-           "savePath": "/src"
+           "savePath": "/Wayfarer-frontend/src"
        }
    ],
    "liveSassCompile.settings.excludeList": [
