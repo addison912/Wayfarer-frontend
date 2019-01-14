@@ -10,7 +10,7 @@ class Header extends Component {
       <div>
         <header className="Header shadow">
           <Link to="/" className="brand">
-            <img src="./assets/images/wwf.gif" alt="Wayfarer logo" />
+            <img src="/assets/images/wwf.gif" alt="Wayfarer logo" />
             <h1>Wayfarer</h1>
           </Link>
           <TopNav

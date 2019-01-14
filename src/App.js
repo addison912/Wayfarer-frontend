@@ -57,12 +57,6 @@ class App extends Component {
     newUser.profilePic = document.getElementById("signup-profilePic").value;
     newUser.password = document.getElementById("signup-password").value;
     console.log(newUser);
-    this.setState({
-      username: newUser.username,
-      email: newUser.email,
-      currentCity: newUser.currentCity,
-      profilePic: newUser.profilePic
-    });
     let joinDate = new Date();
     axios
       .post(`${constants.server}/user/signup`, {
@@ -76,6 +70,10 @@ class App extends Component {
       .then(response => {
         localStorage.token = response.data.token;
         this.setState({
+          username: newUser.username,
+          email: newUser.email,
+          currentCity: newUser.currentCity,
+          profilePic: newUser.profilePic,
           loggedIn: true
         });
         this.toggleSignUpModal();
@@ -91,14 +89,19 @@ class App extends Component {
   handleLogin = e => {
     e.preventDefault();
     console.log("login clicked");
+    let username = document.getElementById("login-username").value;
+    let password = document.getElementById("login-password").value;
     axios
       .post(`${constants.server}/user/login`, {
-        username: document.getElementById("login-username").value,
-        password: document.getElementById("login-password").value
+        username: username,
+        password: password
       })
       .then(response => {
+        console.log(response);
         localStorage.token = response.data.token;
         this.setState({
+          username,
+          password,
           loggedIn: true
         });
         this.toggleLoginModal();
@@ -111,12 +114,6 @@ class App extends Component {
       });
   };
 
-  handleInput = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-
   handleLogOut = () => {
     this.setState({
       username: "",
@@ -127,6 +124,7 @@ class App extends Component {
       loggedIn: false
     });
     localStorage.clear();
+    window.location = "/";
   };
 
   render() {
