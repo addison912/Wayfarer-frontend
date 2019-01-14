@@ -4,58 +4,36 @@ import LoginForm from "./LoginForm";
 import { Link } from "@reach/router";
 
 class Header extends Component {
-  state = {
-    signUpModalStyle: { display: "none" },
-    loginModalStyle: { display: "none" }
-  };
-
-  toggleSignUpModal = () => {
-    this.state.signUpModalStyle.display === "none"
-      ? this.setState({
-          signUpModalStyle: { display: "flex" }
-        })
-      : this.setState({
-          signUpModalStyle: { display: "none" }
-        });
-  };
-
-  toggleLoginModal = () => {
-    this.state.loginModalStyle.display === "none"
-      ? this.setState({
-          loginModalStyle: { display: "flex" }
-        })
-      : this.setState({
-          loginModalStyle: { display: "none" }
-        });
-  };
-
   render() {
     return (
       <div>
         <header className="Header shadow">
           <Link to="/" className="brand">
-            <img src="./assets/images/wwf.gif" />
+            <img src="./assets/images/wwf.gif" alt="Wayfarer logo" />
             <h1>Wayfarer</h1>
           </Link>
           <nav className="top-nav">
-            <a href="#" onClick={this.toggleLoginModal}>
+            <a href="#" onClick={this.props.toggleLoginModal}>
               <p>Login</p>
             </a>
-            <a href="#" onClick={this.toggleSignUpModal}>
+            <a href="#" onClick={this.props.toggleSignUpModal}>
               <p>Sign Up</p>
             </a>
-            <Link to={`/profile/${this.props.user.username}`}>
+            <Link to={`/profile/${this.props.username}`}>
               <p>Profile</p>
             </Link>
           </nav>
         </header>
         <SignUpForm
-          style={this.state.signUpModalStyle}
-          toggleSignUpModal={this.toggleSignUpModal}
+          style={this.props.signUpModalStyle}
+          toggleSignUpModal={this.props.toggleSignUpModal}
+          loggedIn={this.props.loggedIn}
+          handleInput={this.props.handleInput}
+          handleSignUp={this.props.handleSignUp}
         />
         <LoginForm
-          style={this.state.loginModalStyle}
-          toggleLoginModal={this.toggleLoginModal}
+          style={this.props.loginModalStyle}
+          toggleLoginModal={this.props.toggleLoginModal}
         />
       </div>
     );

@@ -4,7 +4,11 @@ class City extends Component {
   render() {
     return (
       <div className="City shadow-box">
-        <img className="city-list-image" src="http://placecorgi.com/260/180" />
+        <img
+          className="city-list-image"
+          src="http://placecorgi.com/260/180"
+          alt="city"
+        />
         <h2>City Name</h2>
       </div>
     );

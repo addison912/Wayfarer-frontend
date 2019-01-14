@@ -1,44 +1,46 @@
 import React, { Component } from "react";
-import axios from "axios";
 
 class SignUpForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      signUp: ""
-    };
-  }
-
-  handleSignUp = e => {
-    e.preventDefault();
-    axios
-      .post("http://localhost:3001/users/signup", {
-        email: this.state.email,
-        password: this.state.password
-      })
-      .then(response => {
-        localStorage.token = response.data.token;
-        this.setState({
-          isLoggedIn: true
-        });
-      })
-      .catch(err => console.log(err));
-  };
-
   render() {
     return (
       <div className="modal-container" style={this.props.style}>
         <form className="modal" encType="multipart/form-data">
-          <input type="text" name="username" placeholder="username" />
-          <input type="password" name="password" placeholder="password" />
-          <input type="text" name="email" placeholder="email" />
-          <input type="text" name="currentCity" placeholder="Current City" />
+          <input
+            type="text"
+            name="username"
+            placeholder="username"
+            onChange={this.props.handleInput}
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            onChange={this.props.handleInput}
+          />
+          <input
+            type="text"
+            name="email"
+            placeholder="email"
+            onChange={this.props.handleInput}
+          />
+          <input
+            type="text"
+            name="currentCity"
+            placeholder="Current City"
+            onChange={this.props.handleInput}
+          />
           <br />
           <label htmlFor="profileUpload">Upload a profile picture:</label>
-          <input type="file" name="profilePic" id="profileUpload" />
+          <input
+            type="file"
+            accept="image/*"
+            name="profilePic"
+            id="profileUpload"
+            onChange={this.props.handleInput}
+          />
           <div className="formControls">
             <button onClick={this.props.toggleSignUpModal}>Cancel</button>
-            <input type="submit" onClick={this.handleSignUp} />
+            <input type="submit" onClick={this.props.handleSignUp} />
           </div>
         </form>
       </div>
