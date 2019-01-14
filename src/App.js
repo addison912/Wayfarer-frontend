@@ -108,6 +108,7 @@ class App extends Component {
         localStorage.token = response.data.token;
         this.toggleLoginModal();
         this.setState({
+          userId: response.data._id,
           username,
           password,
           loggedIn: true
