@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router } from "@reach/router";
+import { Router, redirectTo, Redirect } from "@reach/router";
 import Header from "./components/Header";
 import HomeContainer from "./containers/HomeContainer";
 import ProfileContainer from "./containers/ProfileContainer";
@@ -99,16 +99,16 @@ class App extends Component {
       .then(response => {
         console.log(response);
         localStorage.token = response.data.token;
+        this.toggleLoginModal();
         this.setState({
           username,
           password,
           loggedIn: true
         });
-        this.toggleLoginModal();
       })
       .catch(err => {
         console.log(err);
-        if (err.response.status === 401) {
+        if (err.response.status === 401 && err.response.data.message) {
           alert(err.response.data.message);
         }
       });
@@ -124,7 +124,6 @@ class App extends Component {
       loggedIn: false
     });
     localStorage.clear();
-    window.location = "/";
   };
 
   render() {
@@ -145,6 +144,7 @@ class App extends Component {
         <Router>
           <HomeContainer path="/" loggedIn={this.state.loggedIn} />
           <ProfileContainer
+            loggedIn={this.state.loggedIn}
             username={this.state.username}
             path="/profile/:username"
           />
