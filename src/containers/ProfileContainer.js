@@ -2,75 +2,137 @@ import React, { Component } from "react";
 import axios from "axios";
 import Posts from "../components/Posts";
 
+
+
 class ProfileContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
         posts: [],
-        axiosCall: false
+        postGet: true,
+        axiosPost: true,
+        userObject: "",
+        userGet: true
       }
   }  
 
-  
-  
     componentDidUpdate() { 
-      if (this.state.axiosCall === false ) {
+      if (this.props.userId != false && this.state.postGet === true) {
       console.log('componentDidUpdate',this.props.userId)
   
       axios.get(`http://localhost:3001/post/${this.props.userId}`)
               .then(response => {
-                console.log(response)
+                console.log("UserId Response", response)
                 this.setState({
                   posts: response.data,
-                  axiosCall: true
+                  postGet: false
                 })
+                console.log(response.data)
               })
             }
-          }
+      
+      if (this.props.username != false && this.state.userGet === true ) {
+              console.log('componentDidUpdate',this.props.userId)
+          
+              axios.get(`http://localhost:3001/user/${this.props.username}`)
+                      .then(response => {
+                        console.log("Username Response", response)
+                        this.setState({
+                          userObject: response.data,
+                          userGet: false
+                        })
+                        console.log(this.state.userObject.user.profilePic)
+                        
+                      })
+                    }
+          
+
+          // if (this.props.userId != false && this.state.axiosPost === true ) {
+            
+          //   console.log('User ID did update',this.props.userId)
+
+          //   let userID = this.props.userId
+          //   console.log(userID)
+          //      let post = {
+          //           user: userID,
+          //           title: "JSON User Post: San Francisoc Hot Spots",
+          //           picture: "https://picsum.photos/200",
+          //           body: "Let me count the reasons why I can't wait to go to San Francisco.  Are you ready for fun and fog?"
+          //         }
+          //     let data = JSON.stringify(post)
+
+          //   // console.log("this is the post": console.log(post))
+          
+          //   axios.post(`http://localhost:3001/post/create`, data)
+            
+          //           .then(response => {
+          //             console.log("Post Response", response)
+          //             this.setState({
+          //               postCreated: response.data,
+          //               axiosPost: false
+          //             })
+          //           })
+          //         }
+
+
+                }
+          //   )
+              
+              
+                  
+            
+            
+            
+
     
     
   
     render() {
-    console.log('RENDERED',this.props.userId)
-    console.log(this.state.posts)
-    console.log(this.state.axiosCall)
+
+    let userProfile;
+    let userPost;
+       if (this.state.userGet != true) {
+      userProfile = 
+        <div>
+          <img src={this.state.userObject.user.profilePic} alt={this.state.userObject.user.username} className='user-image' />
+        <p>This is my Username:{this.state.userObject.user.username}</p>
+        <p>This is my User Id: {this.state.userObject.user._id}</p>
+        <p>This is my Current City: {this.state.userObject.user.currentCity}</p>
+        <p>This is my about me: {this.state.userObject.user.about}</p>
+        <p>This is the date I joined: {this.state.userObject.user.joinDate}</p>
+        <p>This is my email: {this.state.userObject.user.email}</p>
+        </div>
 
 
-  // componentDidMount () {
-  //   axios.get(`http://localhost:3001/posts/${this.state.userId}`)
-  //           .then(response => {
-  //             this.setState({
-  //               posts: response.data
-  //             })
-  //           })
+        if (this.state.postGet != true) {
+        userPost =
+        this.state.posts.result.map(post =>{
+        return(
+        <li key={ post._id }>{post.title}</li>
+  )
+})
+}
+}
+    
+    
+    
 
-      
-      
-      // let posts = this.state.posts.map((posts, i) => {
-      //   return (
-      //     <div key={i}>
-      //       <Posts info={posts} isLoggedIn={this.state.isLoggedIn}
-      //       />
-      //     </div>
-      //   )
-      // })
+    
+
 
     return (
       <div className="ProfileContainer">
-      <p>Profile Container</p>
+        <p>Profile Container</p>
         <h1>Welcome {this.props.username}</h1>
-        {/* <img src={this.state.user.profilePic} alt={this.state.user.username} className='user-image' /> */}
-        {/* <p>{this.state.user.username}</p> */}
-        {/* <p>{this.state.user.currentCity}</p> */}
-        {/* <p>{this.state.user.about}</p> */}
-        {/* <p>{this.state.user.joinDate}</p> */}
-        {/* <p>{this.state.user.email}</p> */}
+        {userProfile}
         <div className="listPosts">
-        {/* {posts} */}
+        {userPost}
         </div>
       </div>
-    );
+    )
+    }
   }
-}
+  
+      
 
 export default ProfileContainer;
