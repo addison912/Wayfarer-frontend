@@ -27,6 +27,7 @@ class Header extends Component {
           loggedIn={this.props.loggedIn}
           handleInput={this.props.handleInput}
           handleSignUp={this.props.handleSignUp}
+          imageUpload={this.props.imageUpload}
         />
         <LoginForm
           style={this.props.loginModalStyle}

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import axios from "axios";
+const constants = require("../config/constants");
 
 class PostForm extends Component {
   constructor(props) {
@@ -20,12 +22,16 @@ class PostForm extends Component {
   postSubmit = e => {
     e.preventDefault();
     console.log("submitted post");
-    let newPost;
+    let newPost = {};
     let { title, city, body, picture } = this.state;
     newPost.title = title;
     newPost.city = city;
     newPost.body = body;
     newPost.picture = picture;
+    axios.post(`${constants.server}/post/create`, newPost).then(response => {
+      console.log("posted");
+      console.log(response);
+    });
   };
 
   render() {
