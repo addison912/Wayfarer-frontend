@@ -18,7 +18,6 @@ class HomeContainer extends Component {
         <div className="HomeContainer">
           <Cities />
           <CityDetails />
-          <ProfileContainer />
         </div>
       );
     } else {
