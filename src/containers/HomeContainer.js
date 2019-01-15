@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Cities from "../components/Cities";
 import CityDetails from "../components/CityDetails";
 import Landing from "../components/Landing";
+import ProfileContainer from "./ProfileContainer";
 
 class HomeContainer extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class HomeContainer extends Component {
         <div className="HomeContainer">
           <Cities />
           <CityDetails />
+          <ProfileContainer />
         </div>
       );
     } else {

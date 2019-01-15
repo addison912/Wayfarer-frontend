@@ -154,6 +154,7 @@ class App extends Component {
           <ProfileContainer
             loggedIn={this.state.loggedIn}
             username={this.state.username}
+            userId={this.state.userId}
             path="/profile/:username"
           />
         </Router>
