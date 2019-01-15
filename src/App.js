@@ -22,12 +22,14 @@ class App extends Component {
     };
   }
 
-  // function checkForLogin(){
-  //   if(localStorage.token){
-  //     let jwt = localStorage.token
-
-  //   }
-  //   }
+  checkForLogin() {
+    if (localStorage.token) {
+      // let jwt = localStorage.token;
+      this.setState({
+        loggedIn: true
+      });
+    }
+  }
 
   toggleSignUpModal = () => {
     this.state.signUpModalStyle.display === "none"
@@ -120,11 +122,12 @@ class App extends Component {
       .then(response => {
         console.log(response);
         localStorage.token = response.data.token;
+        localStorage.userId = response.data._id;
         this.toggleLoginModal();
         this.setState({
           userId: response.data._id,
           username,
-          password,
+          profilePic: response.data.profilePic,
           loggedIn: true
         });
       })
@@ -155,6 +158,9 @@ class App extends Component {
     });
   };
 
+  componentDidMount() {
+    this.checkForLogin();
+  }
   render() {
     return (
       <div className="App">
@@ -172,10 +178,15 @@ class App extends Component {
           imageUpload={this.imageUpload}
         />
         <Router>
-          <HomeContainer path="/" loggedIn={this.state.loggedIn} />
+          <HomeContainer
+            path="/"
+            loggedIn={this.state.loggedIn}
+            currentCity={this.state.currentCity}
+          />
           <ProfileContainer
             loggedIn={this.state.loggedIn}
             username={this.state.username}
+            profilePic={this.state.profilePic}
             userId={this.state.userId}
             path="/profile/:username"
           />

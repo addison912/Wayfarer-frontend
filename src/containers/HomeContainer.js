@@ -2,14 +2,18 @@ import React, { Component } from "react";
 import Cities from "../components/Cities";
 import CityDetails from "../components/CityDetails";
 import Landing from "../components/Landing";
-import ProfileContainer from "./ProfileContainer";
 
 class HomeContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true
+      loading: true,
+      displayedCity: {}
     };
+  }
+
+  componentDidMount() {
+    this.setState({ displayedCity: this.props.currentCity });
   }
 
   render() {
@@ -17,7 +21,10 @@ class HomeContainer extends Component {
       return (
         <div className="HomeContainer">
           <Cities />
-          <CityDetails />
+          <CityDetails
+            displayedCity={this.state.displayedCity}
+            currentCity={this.props.currentCity}
+          />
         </div>
       );
     } else {
