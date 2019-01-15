@@ -95,8 +95,14 @@ class App extends Component {
       })
       .catch(err => {
         console.log(err.response);
-        if (err.response.status === 409) {
+        if (
+          err.response &&
+          err.response.status &&
+          err.response.status === 409
+        ) {
           alert(err.response.data.message);
+        } else {
+          console.log(err.response);
         }
       });
   };
