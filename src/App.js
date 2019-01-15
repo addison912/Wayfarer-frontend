@@ -82,12 +82,8 @@ class App extends Component {
         this.toggleSignUpModal();
       })
       .catch(err => {
-        console.log(err);
-        if (
-          err.response.status &&
-          err.response.status === 409 &&
-          err.response.data.message
-        ) {
+        console.log(err.response);
+        if (err.response.status === 409) {
           alert(err.response.data.message);
         }
       });
