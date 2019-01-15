@@ -123,6 +123,10 @@ body {
   border-radius: 5px 0 0 5px;
 }
 
+.city-list-image {
+  width: 275px;
+}
+
 .CityInfo {
   display: flex;
   background: #ffb619;
