@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -13,55 +12,41 @@ body {
 .shadow-box {
   margin: 0 0 10px 0;
   border-radius: 5px;
-  -webkit-box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.2);
-          box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .shadow {
-  -webkit-box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.2);
-          box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .Header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   background: #6495ed;
   margin: 0;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   padding: 0 10px 0 0;
 }
-
 .Header img {
   border-radius: 50%;
   margin: 8px;
   width: 48px;
   height: 48px;
 }
-
 .Header a {
   text-decoration: none;
   text-transform: uppercase;
   color: #333;
   margin: 0 12px;
 }
-
 .Header a p:hover {
   color: #fff;
   text-decoration: underline;
 }
 
 .brand {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .brand h1 {
   margin: 0;
   padding: 12px;
@@ -69,34 +54,29 @@ body {
 }
 
 .top-nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
 * {
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .landing {
   background-color: white;
+}
+.landing h1 {
+  text-align: center;
+  margin: 1em;
 }
 
 .slider {
   width: 100vw;
   height: 40vh;
   background-color: grey;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .hide {
@@ -104,98 +84,64 @@ body {
 }
 
 .landingWrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   width: 100vw;
   height: 40vh;
 }
 
-.landingWrapper .landingArticle {
+.landingArticle {
   border: 1px solid black;
   width: 30vw;
   padding: 1em 2em;
 }
-
-.landingWrapper .landingArticle h2, .landingWrapper .landingArticle p {
+.landingArticle h2,
+.landingArticle p {
   text-align: left;
-  padding: .5em;
-}
-
-h1 {
-  text-align: center;
-  margin: 1em;
-  border: 1px solid black;
+  padding: 0.5em;
 }
 
 .Cities {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 41.66%;
   padding: 12px;
   height: 90vh;
   overflow: scroll;
 }
-
 .Cities h2 {
   width: 100%;
   text-align: center;
 }
 
 .City {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   background: ivory;
 }
-
 .City img {
   border-radius: 5px 0 0 5px;
 }
 
 .CityInfo {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   background: #ffb619;
 }
-
 .CityInfo img {
   border-radius: 0 5px 5px 0;
   width: 58.33%;
 }
 
 .city-headers {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 41.66%;
   padding: 0 12px;
 }
 
-.CitiesContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.HomeContainer {
   display: flex;
 }
 
@@ -207,17 +153,13 @@ h1 {
 }
 
 .Post {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   background: ivory;
 }
-
 .Post img {
   border-radius: 5px 0 0 5px;
   width: 41.66%;
 }
-
 .Post article {
   width: 58.33%;
   padding: 8px;
@@ -225,12 +167,8 @@ h1 {
 }
 
 .AddPost {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 #add-post-icon:hover {
@@ -238,22 +176,15 @@ h1 {
 }
 
 .plus-icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   background: #52cf52;
   border-radius: 50%;
   height: 48px;
   width: 48px;
   margin: 12px;
 }
-
 .plus-icon h1 {
   color: #eee6d8;
   font-size: 64px;
@@ -261,12 +192,8 @@ h1 {
 }
 
 .modal-container {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -277,18 +204,12 @@ h1 {
 }
 
 .modal {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   min-width: 300px;
   width: 60vw;
   border-radius: 5px;
-  -webkit-box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.5);
-          box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.5);
   background: whitesmoke;
   padding: 10px;
 }
@@ -328,21 +249,6 @@ button {
   min-width: 100px;
 }
 
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
-  text-transform: uppercase;
-}
-
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
-  text-transform: uppercase;
-}
-
-input::-ms-input-placeholder,
-textarea::-ms-input-placeholder {
-  text-transform: uppercase;
-}
-
 input::placeholder,
 textarea::placeholder {
   text-transform: uppercase;
@@ -354,17 +260,11 @@ textarea {
 
 .formControls {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .form-row {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 

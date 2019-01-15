@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import axios from 'axios';
-import Posts from '../components/Posts'
-
+import axios from "axios";
+import Posts from "../components/Posts";
 
 class ProfileContainer extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
         posts: [],
         axiosCall: false
@@ -18,7 +17,7 @@ class ProfileContainer extends Component {
       if (this.state.axiosCall === false ) {
       console.log('componentDidUpdate',this.props.userId)
   
-      axios.get("http://localhost:3001/post/asdfaasdf")
+      axios.get(`http://localhost:3001/post/${this.props.userId}`)
               .then(response => {
                 console.log(response)
                 this.setState({
@@ -37,6 +36,13 @@ class ProfileContainer extends Component {
     console.log(this.state.axiosCall)
 
 
+  // componentDidMount () {
+  //   axios.get(`http://localhost:3001/posts/${this.state.userId}`)
+  //           .then(response => {
+  //             this.setState({
+  //               posts: response.data
+  //             })
+  //           })
 
       
       
@@ -63,7 +69,6 @@ class ProfileContainer extends Component {
         {/* {posts} */}
         </div>
       </div>
-  
     );
   }
 }
