@@ -36,6 +36,7 @@ class SignUpForm extends Component {
             accept="image/*"
             name="profilePic"
             id="signup-profilePic"
+            onChange={this.props.imageUpload}
           />
           <div className="formControls">
             <button onClick={this.props.toggleSignUpModal}>Cancel</button>

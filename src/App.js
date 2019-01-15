@@ -15,7 +15,7 @@ class App extends Component {
       username: "",
       email: "",
       currentCity: "",
-      profilePic: "#",
+      profilePic: "",
       loggedIn: false,
       signUpModalStyle: { display: "none" },
       loginModalStyle: { display: "none" }
@@ -51,23 +51,35 @@ class App extends Component {
 
   handleSignUp = e => {
     e.preventDefault();
-    let newUser = {};
-    newUser.username = document.getElementById("signup-username").value;
-    newUser.email = document.getElementById("signup-email").value;
-    newUser.currentCity = document.getElementById("signup-currentCity").value;
-    newUser.profilePic = document.getElementById("signup-profilePic").value;
-    newUser.password = document.getElementById("signup-password").value;
-    console.log(newUser);
     let joinDate = new Date();
-    axios
-      .post(`${constants.server}/user/signup`, {
-        username: newUser.username,
-        email: newUser.email,
-        password: newUser.password,
-        currentCity: newUser.currentCity,
-        profilePic: newUser.profilePic,
-        joinDate: joinDate
-      })
+    let newUser = new FormData();
+    newUser.append(
+      "username",
+      document.getElementById("signup-username").value
+    );
+    newUser.append("email", document.getElementById("signup-email").value);
+    newUser.append(
+      "currentCity",
+      document.getElementById("signup-currentCity").value
+    );
+    newUser.append("profilePic", this.state.profilePic);
+    newUser.append(
+      "password",
+      document.getElementById("signup-password").value
+    );
+    newUser.append("joinDate", joinDate);
+    console.log(newUser);
+
+    axios({
+      method: "POST",
+      url: `${constants.server}/user/signup`,
+      data: newUser,
+      config: {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      }
+    })
       .then(response => {
         console.log(response.data);
         localStorage.token = response.data.token;
@@ -128,10 +140,17 @@ class App extends Component {
       email: "",
       password: "",
       currentCity: "",
-      profilePic: "#",
+      profilePic: "",
       loggedIn: false
     });
     localStorage.clear();
+  };
+
+  imageUpload = e => {
+    console.log("uploading image");
+    this.setState({
+      profilePic: e.target.files[0]
+    });
   };
 
   render() {
@@ -148,6 +167,7 @@ class App extends Component {
           loginModalStyle={this.state.loginModalStyle}
           handleLogOut={this.handleLogOut}
           handleLogin={this.handleLogin}
+          imageUpload={this.imageUpload}
         />
         <Router>
           <HomeContainer path="/" loggedIn={this.state.loggedIn} />
