@@ -16,7 +16,7 @@ class ProfileContainer extends Component {
   }
 
   componentDidUpdate() {
-    if (this.props.userId != false && this.state.postGet === true) {
+    if (this.props.userId !== false && this.state.postGet === true) {
       console.log("componentDidUpdate", this.props.userId);
 
       axios

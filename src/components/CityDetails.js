@@ -2,24 +2,16 @@ import React, { Component } from "react";
 import CityInfo from "./CityInfo";
 import Posts from "./Posts";
 import AddPost from "./AddPost";
+import axios from "axios";
+const constants = require("../config/constants");
 
 class CityDetails extends Component {
-  state = {
-    displayCity: {}
-  };
-  componentDidUpdate() {
-    if (this.props.currentCity) {
-      this.setState({
-        displayCity: this.props.currentCity
-      });
-    }
-  }
   render() {
     return (
       <div className="CityDetails">
-        <CityInfo currentCity={this.props.currentCity} />
-        <AddPost currentCity={this.props.currentCity} />
-        <Posts displayCity={this.state.displayCity} />
+        <CityInfo displayCity={this.props.displayCity} />
+        <AddPost displayCity={this.props.displayCity} />
+        <Posts displayCity={this.props.displayCity} />
       </div>
     );
   }

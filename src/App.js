@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router, redirectTo, Redirect } from "@reach/router";
+import { Router, redirectTo, Redirect, navigate } from "@reach/router";
 import Header from "./components/Header";
 import HomeContainer from "./containers/HomeContainer";
 import ProfileContainer from "./containers/ProfileContainer";
@@ -128,7 +128,10 @@ class App extends Component {
           username: response.data.user.username,
           profilePic: response.data.user.profilePic,
           currentCity: response.data.user.currentCity,
-          email: response.data.user.email,
+          email: response.data.user.email
+        });
+        navigate(`/profile/${username}`);
+        this.setState({
           loggedIn: true
         });
       })

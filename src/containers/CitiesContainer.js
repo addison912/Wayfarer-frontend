@@ -9,11 +9,15 @@ class CitiesContainer extends Component {
     super(props);
     this.state = {
       loading: true,
-      cities: []
+      cities: [],
+      displayCity: false
     };
   }
 
   componentDidMount() {
+    if (this.props.currentCity) {
+      this.setState({ displayCity: this.props.currentCity });
+    }
     axios.get(`${constants.server}/city/index`, {}).then(cities => {
       this.setState({
         cities: cities.data
@@ -26,7 +30,7 @@ class CitiesContainer extends Component {
       <div className="CitiesContainer">
         <Cities cities={this.state.cities} />
         <CityDetails
-          currentCity={this.props.currentCity}
+          displayedCity={this.state.displayCity}
           cities={this.state.cities}
         />
       </div>
