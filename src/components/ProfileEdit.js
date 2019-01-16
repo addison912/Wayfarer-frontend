@@ -30,7 +30,7 @@ class ProfileEdit extends Component {
             type="file"
             accept="image/*"
             name="profilePic"
-            id="signup-profilePic"
+            id="edit-profilePic"
             onChange={this.props.imageUpload}
           />
           <div className="formControls">
