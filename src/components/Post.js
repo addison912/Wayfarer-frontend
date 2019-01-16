@@ -38,7 +38,7 @@ class Post extends Component {
 
       <div className="Post-Container">
       {showPost}
-      <PostDetails />
+      {/* <PostDetails /> */}
       </div>
     );
   
