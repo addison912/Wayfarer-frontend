@@ -132,12 +132,12 @@ class App extends Component {
           loggedIn: true
         });
       })
-      .catch(err => {
-        console.log(err);
-        if (err.response.status === 401 && err.response.data.message) {
-          alert(err.response.data.message);
-        }
-      });
+      // .catch(err => {
+      //   console.log(err);
+      //   if (err.response.status === 401 && err.response.data.message) {
+      //     alert(err.response.data.message);
+      //   }
+      // });
   };
 
   handleLogOut = () => {

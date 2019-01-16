@@ -15,10 +15,7 @@ class Landing extends Component {
 
       <div className="landing">
       <Carousel />
-      {/* media={media} */}
-        <div className="slider">
-            <h1>Slider</h1>
-        </div>
+
         <h1>Wayfarer is...</h1>
         <section className="landingWrapper">
             <article className="landingArticle">

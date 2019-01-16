@@ -8,6 +8,7 @@
     "qs": "^6.6.0",
     "querystring": "^0.2.0",
     "react": "^16.7.0",
+    "react-animated-slider": "^1.1.4",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.3"
   },
