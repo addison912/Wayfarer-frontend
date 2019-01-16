@@ -17,3 +17,10 @@ body {
 .shadow {
   box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.2);
 }
+
+.image-container {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+}

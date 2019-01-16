@@ -7,8 +7,8 @@ class CityDetails extends Component {
   render() {
     return (
       <div className="CityDetails">
-        <CityInfo />
-        <AddPost />
+        <CityInfo currentCity={this.props.currentCity} />
+        <AddPost currentCity={this.props.currentCity} />
         <Posts />
       </div>
     );

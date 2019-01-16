@@ -48,6 +48,7 @@ class PostForm extends Component {
             type="text"
             name="city"
             placeholder="city"
+            value={this.props.currentCity}
             onChange={this.handleInput}
           />
           <textarea
