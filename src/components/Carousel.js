@@ -34,7 +34,7 @@ class Carousel extends Component {
         let photoTwo = `${constants.server}/uploads/profilePics/slider2.jpg`
         let photoThree = `${constants.server}/uploads/profilePics/slider3.jpg`
         let photoFour = `${constants.server}/uploads/profilePics/slider4.jpg`
-        let photos = [{ photoOne}, {photoTwo}, {photoThree}, {photoFour}]
+        // let photos = [{ photoOne}, {photoTwo}, {photoThree}, {photoFour}]
         // const { photos, active } = this.state
 
         return(
@@ -44,7 +44,7 @@ class Carousel extends Component {
                 <img src={photoThree} height="362" width="583" />
                 <img src={photoFour} height="345" width="518" />
                 {/* <img src={photos[active].value} /> */}
-                <div className="carousel-smaller">
+                {/* <div className="carousel-smaller">
                 </div>
                     {photos.map((photo, index) =>(
                         <img 
@@ -55,7 +55,7 @@ class Carousel extends Component {
                         // className={index === active ? "active" : ""}
                         alt="city thumbnail"
                         />
-                    ))}
+                    ))} */}
             </div>
         )
     }
