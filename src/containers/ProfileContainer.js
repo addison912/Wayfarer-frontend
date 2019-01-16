@@ -7,7 +7,7 @@ class ProfileContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: [],
+      posts: "",
       postGet: true,
       axiosPost: true,
       userObject: "",
@@ -16,23 +16,29 @@ class ProfileContainer extends Component {
   }
 
   componentDidUpdate() {
-    if (this.props.userId !== false && this.state.postGet === true) {
-      console.log("componentDidUpdate", this.props.userId);
+    this.getPostandUser()
+  }
+  componentDidMount() {
+    this.getPostandUser()
+  }
 
+  getPostandUser = () =>{
+    if (this.props.userId !== false && (this.state.postGet === true ||this.state.posts === "")) {
       axios
         .get(`${constants.server}/post/user/${this.props.userId}`)
         .then(response => {
-          console.log("UserId Response", response);
+          console.log("Username Response", response);
           this.setState({
             posts: response.data,
             postGet: false
           });
           console.log(response.data);
-        });
+        })
+        console.log("componentDidUpdate", this.props.userId);
+        console.log("componentDidUpdate", this.props.username);
     }
 
-    if (this.props.username !== false && this.state.userGet === true) {
-      console.log("componentDidUpdate", this.props.username);
+    if (this.props.username !== false && this.state.userObject === "") {
 
       axios
         .get(`${constants.server}/user/${this.props.username}`)
@@ -43,15 +49,17 @@ class ProfileContainer extends Component {
             userGet: false
           });
           console.log(this.state.userObject.user.profilePic);
-        });
+        })
+        console.log("componentDidUpdate", this.props.username);
     }
   }
-
+  
   render() {
     let userProfile;
     let userPost;
-    
-    if (this.state.userGet !== true) {
+
+    if ( this.state.userObject !== "" )
+    {
       let date = new Date(this.state.userObject.user.joinDate)
       let joinDate = (date.getMonth()+1)+'-'+(date.getMonth()+1)+'-'+date.getFullYear()
       userProfile = (
@@ -76,8 +84,7 @@ class ProfileContainer extends Component {
           </div>
         </div>
       );
-
-      if (this.state.postGet != true) {
+      if (this.state.posts !== "") {
         userPost = this.state.posts.result.map(post => {
           return (
             <div key={post._id}>
@@ -87,7 +94,6 @@ class ProfileContainer extends Component {
         });
       }
     }
-
     return (
       <div className="ProfileContainer">
         <div className="userFields">
@@ -101,5 +107,4 @@ class ProfileContainer extends Component {
     );
   }
 }
-
 export default ProfileContainer;
