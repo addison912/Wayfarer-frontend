@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import CityPost from "./CityPost";
-import axios from "axios";
-const constants = require("../config/constants");
 
 class Posts extends Component {
   render() {
@@ -17,7 +15,6 @@ class Posts extends Component {
                 user={post.user}
                 comments={post.comments}
                 id={post}
-                profilePic={this.props.user.profilePic}
               />
             );
           })}

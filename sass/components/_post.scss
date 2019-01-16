@@ -19,3 +19,9 @@
   justify-content: flex-start;
   width: 33.33%;
 }
+
+.post-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

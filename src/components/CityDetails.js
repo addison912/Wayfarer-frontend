@@ -67,7 +67,6 @@ class CityDetails extends Component {
         } else {
           posts = [];
         }
-        console.log(posts);
         this.setState({
           posts
         });

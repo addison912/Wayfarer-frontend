@@ -220,6 +220,12 @@ li {
   width: 33.33%;
 }
 
+.post-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .AddPost {
   display: flex;
   justify-content: flex-end;

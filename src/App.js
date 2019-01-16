@@ -102,6 +102,7 @@ class App extends Component {
         navigate(`/profile/${response.data.result.username}`);
         console.log(response.data);
         localStorage.token = response.data.token;
+        localStorage.username = response.data.result.username;
         this.setState({
           username: response.data.result.username,
           email: response.data.result.email,

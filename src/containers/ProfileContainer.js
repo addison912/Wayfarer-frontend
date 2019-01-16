@@ -26,42 +26,27 @@ class ProfileContainer extends Component {
           profileEditModalStyle: { display: "none" }
         });
 
-  componentDidUpdate() {
-    this.getPostandUser();
-  }
   componentDidMount() {
     this.getPostandUser();
   }
 
   getPostandUser = () => {
-    if (
-      this.props.userId !== false &&
-      (this.state.postGet === true || this.state.posts === "")
-    ) {
-      axios
-        .get(`${constants.server}/post/user/${this.props.userId}`)
-        .then(response => {
-          console.log("Username Response", response);
-          this.setState({
-            posts: response.data,
-            postGet: false
-          });
-          console.log(response.data);
-        });
-      console.log("componentDidUpdate", this.props.userId);
-      console.log("componentDidUpdate", this.props.username);
-    }
-
     if (this.props.username !== false && this.state.userObject === "") {
       axios
         .get(`${constants.server}/user/${this.props.username}`)
-        .then(response => {
-          console.log("Username Response", response);
+        .then(user => {
           this.setState({
-            userObject: response.data,
+            userObject: user.data,
             userGet: false
           });
-          console.log(this.state.userObject.user.profilePic);
+          axios
+            .get(`${constants.server}/post/user/${user.data.user._id}`)
+            .then(posts => {
+              this.setState({
+                posts: posts.data,
+                postGet: false
+              });
+            });
         });
       console.log("componentDidUpdate", this.props.username);
     }
