@@ -12,7 +12,11 @@ class HomeContainer extends Component {
     if (this.props.loggedIn === true) {
       return (
         <div className="HomeContainer">
-          <CitiesContainer currentCity={this.props.currentCity} />
+          <CitiesContainer
+            currentCity={this.props.currentCity}
+            togglePostModal={this.props.togglePostModal}
+            postModalStyle={this.props.postModalStyle}
+          />
         </div>
       );
     } else {

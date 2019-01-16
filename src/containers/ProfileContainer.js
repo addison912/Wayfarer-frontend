@@ -3,8 +3,6 @@ import axios from "axios";
 import Post from "../components/Post";
 const constants = require("../config/constants");
 
-
-
 class ProfileContainer extends Component {
   constructor(props) {
     super(props);
@@ -18,11 +16,11 @@ class ProfileContainer extends Component {
   }
 
   componentDidUpdate() {
-    if (this.props.userId != false && this.state.postGet === true) {
+    if (this.props.userId !== false && this.state.postGet === true) {
       console.log("componentDidUpdate", this.props.userId);
 
       axios
-        .get(`${constants.server}/post/${this.props.userId}`)
+        .get(`${constants.server}/post/user/${this.props.userId}`)
         .then(response => {
           console.log("UserId Response", response);
           this.setState({
@@ -79,17 +77,17 @@ class ProfileContainer extends Component {
         </div>
       );
 
-        if (this.state.postGet != true) {
-        userPost =
-        this.state.posts.result.map(post =>{
-        return(
-          <div key={post._id}>
-          <Post info={post} send={true} />
-          </div>  
-  )})
-}
-}
-    
+      if (this.state.postGet != true) {
+        userPost = this.state.posts.result.map(post => {
+          return (
+            <div key={post._id}>
+              <Post info={post} send={true} />
+            </div>
+          );
+        });
+      }
+    }
+
     return (
       <div className="ProfileContainer">
         <div className="userFields">

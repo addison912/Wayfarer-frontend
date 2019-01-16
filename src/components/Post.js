@@ -4,24 +4,16 @@ import PostDetails from './PostDetails'
 
 class Post extends Component {
   constructor(props) {
-    super(props)
-    this.state ={
+    super(props);
+    this.state = {
       post: this.props.info,
       postUpdated: this.props.send
-    }
+    };
   }
 
-
-
-  
-
-
-
-
   render() {
-  
     console.log(this.state.post);
-    let showPost ;
+    let showPost;
     if (this.state.postUpdated === true) {
       showPost =
         <div className="Post shadow-box"   >

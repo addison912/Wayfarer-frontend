@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router, redirectTo, Redirect } from "@reach/router";
+import { Router, navigate } from "@reach/router";
 import Header from "./components/Header";
 import HomeContainer from "./containers/HomeContainer";
 import ProfileContainer from "./containers/ProfileContainer";
@@ -19,7 +19,8 @@ class App extends Component {
       loggedIn: false,
       signUpModalStyle: { display: "none" },
       loginModalStyle: { display: "none" },
-      postModalStyle: { display: "none" }
+      postModalStyle: { display: "none" },
+      postPic: ""
     };
   }
 
@@ -65,6 +66,15 @@ class App extends Component {
         });
   };
 
+  togglePostModal = () =>
+    this.state.postModalStyle.display === "none"
+      ? this.setState({
+          postModalStyle: { display: "flex" }
+        })
+      : this.setState({
+          postModalStyle: { display: "none" }
+        });
+
   handleSignUp = e => {
     e.preventDefault();
     let joinDate = new Date();
@@ -97,6 +107,7 @@ class App extends Component {
       }
     })
       .then(response => {
+        navigate(`/profile/${response.data.result.username}`);
         console.log(response.data);
         localStorage.token = response.data.token;
         this.setState({
@@ -147,12 +158,13 @@ class App extends Component {
           loggedIn: true
         });
       })
-      // .catch(err => {
-      //   console.log(err);
-      //   if (err.response.status === 401 && err.response.data.message) {
-      //     alert(err.response.data.message);
-      //   }
-      // });
+      .catch(err => {
+        console.log(err);
+        if (err.response.status === 401 && err.response.data.message) {
+          alert(err.response.data.message);
+        }
+      });
+    navigate(`/profile/${username}`);
   };
 
   handleLogOut = () => {
@@ -165,6 +177,7 @@ class App extends Component {
       loggedIn: false
     });
     localStorage.clear();
+    navigate(`/`);
   };
 
   imageUpload = e => {
@@ -208,12 +221,16 @@ class App extends Component {
             path="/"
             loggedIn={this.state.loggedIn}
             currentCity={this.state.currentCity}
+            togglePostModal={this.togglePostModal}
+            handleCreatePost={this.handleCreatePost}
+            postModalStyle={this.state.postModalStyle}
           />
           <ProfileContainer
             loggedIn={this.state.loggedIn}
             username={this.state.username}
             profilePic={this.state.profilePic}
             userId={this.state.userId}
+            toggleSignUpModal={this.toggleSignUpModal}
             path="/profile/:username"
           />
         </Router>
