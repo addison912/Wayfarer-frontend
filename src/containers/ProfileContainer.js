@@ -64,8 +64,10 @@ class ProfileContainer extends Component {
           <p>Username: {this.state.userObject.user.username}</p>
           <p>Current City: {this.state.userObject.user.currentCity}</p>
           <p>About me: {this.state.userObject.user.about}</p>
-          <p>Joined Wayfarer: {this.state.userObject.user.joinDate}</p>
-          <p>This is my email: {this.state.userObject.user.email}</p>
+          <p>Email: {this.state.userObject.user.email}</p>
+          <p>
+            Joined Wayfarer: {this.state.userObject.user.joinDate.slice(0, 10)}
+          </p>
         </div>
       );
 
