@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Post from "../components/Post";
 const constants = require("../config/constants");
+
+
 
 class ProfileContainer extends Component {
   constructor(props) {
@@ -71,13 +74,17 @@ class ProfileContainer extends Component {
         </div>
       );
 
-      if (this.state.postGet !== true) {
-        userPost = this.state.posts.result.map(post => {
-          return <li key={post._id}>{post.title}</li>;
-        });
-      }
-    }
-
+        if (this.state.postGet != true) {
+        userPost =
+        this.state.posts.result.map(post =>{
+        return(
+          <div key={post._id}>
+          <Post info={post} send={true} />
+          </div>  
+  )})
+}
+}
+    
     return (
       <div className="ProfileContainer">
         <h1>Welcome {this.props.username}</h1>
