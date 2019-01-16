@@ -20,6 +20,7 @@ class App extends Component {
       signUpModalStyle: { display: "none" },
       loginModalStyle: { display: "none" },
       postModalStyle: { display: "none" },
+
       postPic: ""
     };
   }
@@ -42,20 +43,6 @@ class App extends Component {
         });
   };
 
-  togglePostModal = (e) => {
-    e.preventDefault()
-    console.log("togglePostModalClicked")
-    this.state.postModalStyle.display === "none"
-      ? this.setState({
-          postModalStyle: { display: "flex" }
-        })
-      : this.setState({
-          postModalStyle: { display: "none" }
-        });
-  };
-
-
-
   toggleLoginModal = () => {
     this.state.loginModalStyle.display === "none"
       ? this.setState({
@@ -74,6 +61,11 @@ class App extends Component {
       : this.setState({
           postModalStyle: { display: "none" }
         });
+
+  handleProfileEdit = e => {
+    e.preventDefault();
+    console.log("submitted profile changes");
+  };
 
   handleSignUp = e => {
     e.preventDefault();
@@ -231,6 +223,8 @@ class App extends Component {
             profilePic={this.state.profilePic}
             userId={this.state.userId}
             toggleSignUpModal={this.toggleSignUpModal}
+            imageUpload={this.imageUpload}
+            handleProfileEdit={this.handleProfileEdit}
             path="/profile/:username"
           />
         </Router>
