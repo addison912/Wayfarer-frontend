@@ -133,8 +133,9 @@ class Carousel extends Component {
         <div className="slider">
         <Slider className="slider-wrapper" 
                 onSlideChange={event => console.log(event.slideIndex)}
-                autoplay={2000}
-                
+                autoplay={4000}
+                duration={4000}
+                minSwipeOffset={15}
                 >
 			{content.map((item, index) => (
 				<div

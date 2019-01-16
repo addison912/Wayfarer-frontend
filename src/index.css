@@ -112,7 +112,6 @@ body {
 }
 
 .landingArticle {
-  border: 1px solid black;
   width: 30vw;
   padding: 1em 2em;
 }
@@ -137,6 +136,22 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 5px;
+}
+
+.postsByUser {
+  border: 1px solid black;
+  padding: 5em;
+}
+
+.userWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2em 0 2em 0;
+}
+
+li {
+  margin: .2em;
 }
 
 .Cities {
@@ -636,13 +651,24 @@ label {
   }
 }
 
-@media (max-height: 800px) {
+@media (max-height: 900px) {
   .slider-content .inner h1 {
     font-size: 32px;
   }
   .slider-content section {
     position: absolute;
-    bottom: 70px;
+    bottom: 100px;
+    left: 20px;
+  }
+}
+
+@media (max-height: 1000px) {
+  .slider-content .inner h1 {
+    font-size: 32px;
+  }
+  .slider-content section {
+    position: absolute;
+    bottom: 170px;
     left: 20px;
   }
 }

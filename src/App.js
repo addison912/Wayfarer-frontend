@@ -18,7 +18,8 @@ class App extends Component {
       profilePic: "",
       loggedIn: false,
       signUpModalStyle: { display: "none" },
-      loginModalStyle: { display: "none" }
+      loginModalStyle: { display: "none" },
+      postModalStyle: { display: "none" }
     };
   }
 
@@ -39,6 +40,20 @@ class App extends Component {
           signUpModalStyle: { display: "none" }
         });
   };
+
+  togglePostModal = (e) => {
+    e.preventDefault()
+    console.log("togglePostModalClicked")
+    this.state.postModalStyle.display === "none"
+      ? this.setState({
+          postModalStyle: { display: "flex" }
+        })
+      : this.setState({
+          postModalStyle: { display: "none" }
+        });
+  };
+
+
 
   toggleLoginModal = () => {
     this.state.loginModalStyle.display === "none"
@@ -159,6 +174,13 @@ class App extends Component {
     });
   };
 
+  imageUploadPost = e => {
+    console.log("uploading image");
+    this.setState({
+      profilePic: e.target.files[0]
+    });
+  };
+
   componentDidMount() {
     this.checkForLogin();
   }
@@ -177,6 +199,9 @@ class App extends Component {
           handleLogOut={this.handleLogOut}
           handleLogin={this.handleLogin}
           imageUpload={this.imageUpload}
+          impageUploadPost={this.imageUploadPost}
+          togglePostModal={this.togglePostModal}
+          postModalStyle={this.state.postModalStyle}
         />
         <Router>
           <HomeContainer

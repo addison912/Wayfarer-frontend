@@ -9,3 +9,17 @@
   justify-content: center;
   border-radius: 5px;
 }
+
+.postsByUser {
+  border: 1px solid black;
+  padding: 5em;
+}
+
+.userWrapper {
+  display: flex;
+  padding: 2em 0 2em 0;
+}
+
+li {
+  margin: .2em;
+}

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PostDetails from './PostDetails'
+
 
 class Post extends Component {
   constructor(props) {
@@ -22,13 +24,13 @@ class Post extends Component {
     let showPost ;
     if (this.state.postUpdated === true) {
       showPost =
-        <div className="Post shadow-box">
+        <div className="Post shadow-box"   >
         <img
           className="post-list-image"
           src="http://placecorgi.com/180"
           alt="city"
         />
-        <article className="post-body">
+        <article className="post-body" >
           <h3>{this.state.post.title}</h3>
           <p>
             {this.state.post.body}
@@ -44,6 +46,7 @@ class Post extends Component {
 
       <div className="Post-Container">
       {showPost}
+      <PostDetails />
       </div>
     );
   

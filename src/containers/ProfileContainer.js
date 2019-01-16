@@ -52,9 +52,12 @@ class ProfileContainer extends Component {
   render() {
     let userProfile;
     let userPost;
+    
     if (this.state.userGet !== true) {
+      let date = new Date(this.state.userObject.user.joinDate)
+      let joinDate = (date.getMonth()+1)+'-'+(date.getMonth()+1)+'-'+date.getFullYear()
       userProfile = (
-        <div>
+        <div className="userWrapper">
           <div className="image-container user-image-container">
             <img
               src={`${constants.server}/${
@@ -64,11 +67,15 @@ class ProfileContainer extends Component {
               className="user-image"
             />
           </div>
-          <p>Username: {this.state.userObject.user.username}</p>
-          <p>Current City: {this.state.userObject.user.currentCity}</p>
-          <p>About me: {this.state.userObject.user.about}</p>
-          <p>Joined Wayfarer: {this.state.userObject.user.joinDate}</p>
-          <p>This is my email: {this.state.userObject.user.email}</p>
+          <div className = "userDetails">
+            <ul>
+              <li>My Username Is: {this.state.userObject.user.username}</li>
+              <li>Current City: {this.state.userObject.user.currentCity}</li>
+              <li>Joined Wayfarer: {joinDate}</li>
+              <li>Email: {this.state.userObject.user.email}</li>
+              <li>About me: {this.state.userObject.user.about}</li>
+            </ul>
+          </div>
         </div>
       );
 
@@ -85,9 +92,13 @@ class ProfileContainer extends Component {
     
     return (
       <div className="ProfileContainer">
+        <div className="userFields">
         <h1>Welcome {this.props.username}</h1>
         {userProfile}
-        <div className="listPosts">{userPost}</div>
+        </div>
+        <div className="postsByUser">
+        {userPost}
+        </div>
       </div>
     );
   }
