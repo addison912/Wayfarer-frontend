@@ -1,10 +1,21 @@
 import React, { Component } from "react";
+import Carousel from "./Carousel"
 
 
 class Landing extends Component {
+    constructor(props) {
+        super(props)
+        this.state ={
+        media: []
+
+    }
+}
   render() {
     return (
+
       <div className="landing">
+      <Carousel />
+      {/* media={media} */}
         <div className="slider">
             <h1>Slider</h1>
         </div>

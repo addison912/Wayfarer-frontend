@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Posts from "../components/Posts";
+import Post from "../components/Post";
+const constants = require("../config/constants");
 
 
 
@@ -20,7 +21,7 @@ class ProfileContainer extends Component {
       if (this.props.userId != false && this.state.postGet === true) {
       console.log('componentDidUpdate',this.props.userId)
   
-      axios.get(`http://localhost:3001/post/${this.props.userId}`)
+      axios.get(`${constants.server}/post/${this.props.userId}`)
               .then(response => {
                 console.log("UserId Response", response)
                 this.setState({
@@ -32,9 +33,9 @@ class ProfileContainer extends Component {
             }
       
       if (this.props.username != false && this.state.userGet === true ) {
-              console.log('componentDidUpdate',this.props.userId)
+              console.log('componentDidUpdate',this.props.username)
           
-              axios.get(`http://localhost:3001/user/${this.props.username}`)
+              axios.get(`${constants.server}/user/${this.props.username}`)
                       .then(response => {
                         console.log("Username Response", response)
                         this.setState({
@@ -45,47 +46,7 @@ class ProfileContainer extends Component {
                         
                       })
                     }
-          
-
-          // if (this.props.userId != false && this.state.axiosPost === true ) {
-            
-          //   console.log('User ID did update',this.props.userId)
-
-          //   let userID = this.props.userId
-          //   console.log(userID)
-          //      let post = {
-          //           user: userID,
-          //           title: "JSON User Post: San Francisoc Hot Spots",
-          //           picture: "https://picsum.photos/200",
-          //           body: "Let me count the reasons why I can't wait to go to San Francisco.  Are you ready for fun and fog?"
-          //         }
-          //     let data = JSON.stringify(post)
-
-          //   // console.log("this is the post": console.log(post))
-          
-          //   axios.post(`http://localhost:3001/post/create`, data)
-            
-          //           .then(response => {
-          //             console.log("Post Response", response)
-          //             this.setState({
-          //               postCreated: response.data,
-          //               axiosPost: false
-          //             })
-          //           })
-          //         }
-
-
-                }
-          //   )
-              
-              
-                  
-            
-            
-            
-
-    
-    
+                  }
   
     render() {
 
@@ -94,7 +55,7 @@ class ProfileContainer extends Component {
        if (this.state.userGet != true) {
       userProfile = 
         <div>
-          <img src={this.state.userObject.user.profilePic} alt={this.state.userObject.user.username} className='user-image' />
+          <img src={`${constants.server}/${this.state.userObject.user.profilePic}`} alt={this.state.userObject.user.username} className='user-image' />
         <p>This is my Username:{this.state.userObject.user.username}</p>
         <p>This is my User Id: {this.state.userObject.user._id}</p>
         <p>This is my Current City: {this.state.userObject.user.currentCity}</p>
@@ -103,23 +64,17 @@ class ProfileContainer extends Component {
         <p>This is my email: {this.state.userObject.user.email}</p>
         </div>
 
-
         if (this.state.postGet != true) {
         userPost =
         this.state.posts.result.map(post =>{
         return(
-        <li key={ post._id }>{post.title}</li>
-  )
-})
+          <div key={post._id}>
+          <Post info={post} send={true} />
+          </div>  
+  )})
 }
 }
     
-    
-    
-
-    
-
-
     return (
       <div className="ProfileContainer">
         <p>Profile Container</p>

@@ -1,28 +1,53 @@
 import React, { Component } from "react";
 
 class Post extends Component {
+  constructor(props) {
+    super(props)
+    this.state ={
+      post: this.props.info,
+      postUpdated: this.props.send
+    }
+  }
+
+
+
+  
+
+
+
+
   render() {
-    return (
-      <div className="Post shadow-box">
+  
+    console.log(this.state.post);
+    let showPost ;
+    if (this.state.postUpdated === true) {
+      showPost =
+        <div className="Post shadow-box">
         <img
           className="post-list-image"
           src="http://placecorgi.com/180"
           alt="city"
         />
         <article className="post-body">
-          <h3>Post Title</h3>
+          <h3>{this.state.post.title}</h3>
           <p>
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui
-            blanditiis praesentium voluptatum deleniti atque corrupti quos
-            dolores et quas molestias excepturi sint occaecati cupiditate non
-            provident, similique sunt in culpa qui officia deserunt mollitia
-            animi, id est laborum et dolorum fuga.
+            {this.state.post.body}
           </p>
-          <h4>Author Name</h4>
+          <h4>{this.state.post.author}</h4>
         </article>
       </div>
+      }
+    
+  
+  
+    return (
+
+      <div className="Post-Container">
+      {showPost}
+      </div>
     );
-  }
+  
+} 
 }
 
 export default Post;
