@@ -1,23 +1,18 @@
 import React, { Component } from "react";
-import Cities from "../components/Cities";
-import CityDetails from "../components/CityDetails";
+import CitiesContainer from "../containers/CitiesContainer";
 import Landing from "../components/Landing";
-import ProfileContainer from "./ProfileContainer";
 
 class HomeContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      loading: true
-    };
+    this.state = {};
   }
 
   render() {
     if (this.props.loggedIn === true) {
       return (
         <div className="HomeContainer">
-          <Cities />
-          <CityDetails />
+          <CitiesContainer currentCity={this.props.currentCity} />
         </div>
       );
     } else {

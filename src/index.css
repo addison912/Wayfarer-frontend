@@ -19,6 +19,13 @@ body {
   box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+.image-container {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+}
+
 .Header {
   display: flex;
   background: #6495ed;
@@ -101,6 +108,18 @@ body {
   padding: 0.5em;
 }
 
+.user-image {
+  height: 120px;
+}
+
+.user-image-container {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+}
+
 .Cities {
   display: flex;
   flex-direction: column;
@@ -133,7 +152,7 @@ body {
 }
 .CityInfo img {
   border-radius: 0 5px 5px 0;
-  width: 58.33%;
+  height: 100%;
 }
 
 .city-headers {
@@ -141,11 +160,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 41.66%;
+  width: 66.66%;
   padding: 0 12px;
 }
 
-.HomeContainer {
+.city-image-container {
+  justify-content: flex-end;
+}
+
+.CitiesContainer {
   display: flex;
 }
 

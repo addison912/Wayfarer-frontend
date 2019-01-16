@@ -22,12 +22,13 @@ class App extends Component {
     };
   }
 
-  // function checkForLogin(){
-  //   if(localStorage.token){
-  //     let jwt = localStorage.token
-
-  //   }
-  //   }
+  checkForLogin() {
+    if (localStorage.token) {
+      this.setState({
+        loggedIn: true
+      });
+    }
+  }
 
   toggleSignUpModal = () => {
     this.state.signUpModalStyle.display === "none"
@@ -84,10 +85,10 @@ class App extends Component {
         console.log(response.data);
         localStorage.token = response.data.token;
         this.setState({
-          username: newUser.username,
-          email: newUser.email,
-          currentCity: newUser.currentCity,
-          profilePic: newUser.profilePic,
+          username: response.data.result.username,
+          email: response.data.result.email,
+          currentCity: response.data.result.currentCity,
+          profilePic: response.data.result.profilePic,
           loggedIn: true,
           userId: response.data.result._id
         });
@@ -120,11 +121,14 @@ class App extends Component {
       .then(response => {
         console.log(response);
         localStorage.token = response.data.token;
+        localStorage.username = username;
         this.toggleLoginModal();
         this.setState({
-          userId: response.data._id,
-          username,
-          password,
+          userId: response.data.user._id,
+          username: response.data.user.username,
+          profilePic: response.data.user.profilePic,
+          currentCity: response.data.user.currentCity,
+          email: response.data.user.email,
           loggedIn: true
         });
       })
@@ -155,6 +159,9 @@ class App extends Component {
     });
   };
 
+  componentDidMount() {
+    this.checkForLogin();
+  }
   render() {
     return (
       <div className="App">
@@ -172,10 +179,15 @@ class App extends Component {
           imageUpload={this.imageUpload}
         />
         <Router>
-          <HomeContainer path="/" loggedIn={this.state.loggedIn} />
+          <HomeContainer
+            path="/"
+            loggedIn={this.state.loggedIn}
+            currentCity={this.state.currentCity}
+          />
           <ProfileContainer
             loggedIn={this.state.loggedIn}
             username={this.state.username}
+            profilePic={this.state.profilePic}
             userId={this.state.userId}
             path="/profile/:username"
           />

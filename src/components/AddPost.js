@@ -30,7 +30,11 @@ class AddPost extends Component {
         >
           <h1>+</h1>
         </div>
-        <PostForm style={this.state.PostForm} toggleModal={this.toggleModal} />
+        <PostForm
+          style={this.state.PostForm}
+          toggleModal={this.toggleModal}
+          currentCity={this.props.currentCity}
+        />
       </div>
     );
   }
