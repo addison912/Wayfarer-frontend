@@ -52,6 +52,15 @@ class App extends Component {
         });
   };
 
+  togglePostModal = () =>
+    this.state.postModalStyle.display === "none"
+      ? this.setState({
+          postModalStyle: { display: "flex" }
+        })
+      : this.setState({
+          postModalStyle: { display: "none" }
+        });
+
   handleSignUp = e => {
     e.preventDefault();
     let joinDate = new Date();
@@ -143,15 +152,6 @@ class App extends Component {
       });
     navigate(`/profile/${username}`);
   };
-
-  togglePostModal = () =>
-    this.state.postModalStyle.display === "none"
-      ? this.setState({
-          postModalStyle: { display: "flex" }
-        })
-      : this.setState({
-          postModalStyle: { display: "none" }
-        });
 
   handleLogOut = () => {
     this.setState({
