@@ -2,28 +2,12 @@ import React, { Component } from "react";
 import PostForm from "./PostForm";
 
 class AddPost extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      PostForm: { display: "none" }
-    };
-  }
-
-  toggleModal = () =>
-    this.state.PostForm.display === "none"
-      ? this.setState({
-          PostForm: { display: "flex" }
-        })
-      : this.setState({
-          PostForm: { display: "none" }
-        });
-
   render() {
     return (
       <div className="AddPost">
         <div
           className="plus-icon shadow"
-          onClick={this.toggleModal}
+          onClick={this.props.togglePostModal}
           id="add-post-icon"
           src="./assets/images/plus.svg"
           alt="add post button"
@@ -31,10 +15,12 @@ class AddPost extends Component {
           <h1>+</h1>
         </div>
         <PostForm
-          style={this.state.PostForm}
+          style={this.props.postModalStyle}
           toggleModal={this.toggleModal}
           currentCity={this.props.displayCity}
           ciities={this.props.cities}
+          togglePostModal={this.props.togglePostModal}
+          handleCreatePost={this.props.handleCreatePost}
         />
       </div>
     );

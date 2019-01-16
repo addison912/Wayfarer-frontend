@@ -18,7 +18,9 @@ class App extends Component {
       profilePic: "",
       loggedIn: false,
       signUpModalStyle: { display: "none" },
-      loginModalStyle: { display: "none" }
+      loginModalStyle: { display: "none" },
+      postModalStyle: { display: "none" },
+      postPic: ""
     };
   }
 
@@ -142,6 +144,15 @@ class App extends Component {
     navigate(`/profile/${username}`);
   };
 
+  togglePostModal = () =>
+    this.state.postModalStyle.display === "none"
+      ? this.setState({
+          postModalStyle: { display: "flex" }
+        })
+      : this.setState({
+          postModalStyle: { display: "none" }
+        });
+
   handleLogOut = () => {
     this.setState({
       username: "",
@@ -186,12 +197,16 @@ class App extends Component {
             path="/"
             loggedIn={this.state.loggedIn}
             currentCity={this.state.currentCity}
+            togglePostModal={this.togglePostModal}
+            handleCreatePost={this.handleCreatePost}
+            postModalStyle={this.state.postModalStyle}
           />
           <ProfileContainer
             loggedIn={this.state.loggedIn}
             username={this.state.username}
             profilePic={this.state.profilePic}
             userId={this.state.userId}
+            toggleSignUpModal={this.toggleSignUpModal}
             path="/profile/:username"
           />
         </Router>

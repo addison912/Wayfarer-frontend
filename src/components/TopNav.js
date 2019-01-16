@@ -11,7 +11,7 @@ class TopNav extends Component {
           </a>
           <Link
             username={this.props.username}
-            to={`/profile/${this.props.username}`}
+            to={`/profile/${localStorage.username}`}
           >
             <p>Profile</p>
           </Link>

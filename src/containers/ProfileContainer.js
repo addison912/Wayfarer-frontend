@@ -62,6 +62,7 @@ class ProfileContainer extends Component {
               className="user-image"
             />
           </div>
+
           <p>Username: {this.state.userObject.user.username}</p>
           <p>Current City: {this.state.userObject.user.currentCity}</p>
           <p>About me: {this.state.userObject.user.about}</p>

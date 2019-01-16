@@ -41,7 +41,7 @@ class Posts extends Component {
     return (
       <div className="Posts">
         <div className="post-list">
-          {this.state.posts.map(post => {
+          {this.state.posts.reverse().map(post => {
             return (
               <CityPost
                 key={post._id}
