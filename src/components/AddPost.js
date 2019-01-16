@@ -21,6 +21,7 @@ class AddPost extends Component {
           ciities={this.props.cities}
           togglePostModal={this.props.togglePostModal}
           handleCreatePost={this.props.handleCreatePost}
+          handleInput={this.props.handleInput}
         />
       </div>
     );

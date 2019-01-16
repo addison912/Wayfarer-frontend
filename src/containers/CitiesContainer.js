@@ -33,7 +33,6 @@ class CitiesContainer extends Component {
           displayedCity={this.state.displayCity}
           cities={this.state.cities}
           togglePostModal={this.props.togglePostModal}
-          handleCreatePost={this.props.handleCreatePost}
           postModalStyle={this.props.postModalStyle}
         />
       </div>

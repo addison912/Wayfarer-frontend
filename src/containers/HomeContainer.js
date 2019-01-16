@@ -15,7 +15,6 @@ class HomeContainer extends Component {
           <CitiesContainer
             currentCity={this.props.currentCity}
             togglePostModal={this.props.togglePostModal}
-            handleCreatePost={this.props.handleCreatePost}
             postModalStyle={this.props.postModalStyle}
           />
         </div>
