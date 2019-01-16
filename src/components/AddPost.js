@@ -34,6 +34,7 @@ class AddPost extends Component {
           style={this.state.PostForm}
           toggleModal={this.toggleModal}
           currentCity={this.props.displayCity}
+          ciities={this.props.cities}
         />
       </div>
     );

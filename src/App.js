@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router, redirectTo, Redirect, navigate } from "@reach/router";
+import { Router, navigate } from "@reach/router";
 import Header from "./components/Header";
 import HomeContainer from "./containers/HomeContainer";
 import ProfileContainer from "./containers/ProfileContainer";
@@ -82,6 +82,7 @@ class App extends Component {
       }
     })
       .then(response => {
+        navigate(`/profile/${response.data.result.username}`);
         console.log(response.data);
         localStorage.token = response.data.token;
         this.setState({
@@ -128,10 +129,7 @@ class App extends Component {
           username: response.data.user.username,
           profilePic: response.data.user.profilePic,
           currentCity: response.data.user.currentCity,
-          email: response.data.user.email
-        });
-        navigate(`/profile/${username}`);
-        this.setState({
+          email: response.data.user.email,
           loggedIn: true
         });
       })
@@ -141,6 +139,7 @@ class App extends Component {
           alert(err.response.data.message);
         }
       });
+    navigate(`/profile/${username}`);
   };
 
   handleLogOut = () => {
@@ -153,6 +152,7 @@ class App extends Component {
       loggedIn: false
     });
     localStorage.clear();
+    navigate(`/`);
   };
 
   imageUpload = e => {

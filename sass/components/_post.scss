@@ -3,11 +3,19 @@
   background: ivory;
   img {
     border-radius: 5px 0 0 5px;
-    width: 41.66%;
   }
   article {
     width: 58.33%;
     padding: 8px;
     text-align: left;
   }
+}
+
+.city-post-image {
+  width: 100%;
+}
+
+.city-post-image-container {
+  justify-content: flex-start;
+  width: 33.33%;
 }
