@@ -39,7 +39,6 @@ class ProfileContainer extends Component {
     }
 
     if (this.props.username !== false && this.state.userObject === "") {
-
       axios
         .get(`${constants.server}/user/${this.props.username}`)
         .then(response => {
@@ -57,9 +56,7 @@ class ProfileContainer extends Component {
   render() {
     let userProfile;
     let userPost;
-
-    if ( this.state.userObject !== "" )
-    {
+    if ( this.state.userObject !== "" ) {
       let date = new Date(this.state.userObject.user.joinDate)
       let joinDate = (date.getMonth()+1)+'-'+(date.getMonth()+1)+'-'+date.getFullYear()
       userProfile = (
